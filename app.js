@@ -1,13 +1,26 @@
 const express = require('express')
 const {engine} = require('express-handlebars')
 const app = express();
+const port =3000 ; 
 
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
+app.engine('.hbs', engine({extname:'.hbs'}));
+app.set('view engine', '.hbs');
 app.set('views', './views');
 
 app.get('/', (req, res) => {
-    res.send('Hi')
+    res.redirect('/Restaurants')
 });
 
-app.listen(3000);
+app.get('/Restaurants',(req,res)=>{
+  res.send('Restaurant Lists')
+})
+
+app.get('/:id',(req,res)=>{
+  const id = req.params.id
+  res.send(`restaurant: ${id}`)
+})
+
+
+app.listen(port,()=>{
+  console.log(`Listening: http://localhost:${[port]}`)
+});
