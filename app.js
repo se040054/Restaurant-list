@@ -16,8 +16,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/Restaurants',(req,res)=>{
-  const keyword = req.query.search?.trim()
-  const matchedRestaurant = keyword ? restaurants.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ) 
+  const keyword = req.query.search?.trim() ;
+  const matchedRestaurant = keyword ? 
+  restaurants.filter(restaurant => 
+    Object.values(restaurant).some(property => {
+      if (typeof property === 'string') {
+            return property.toLowerCase().includes(keyword.toLowerCase())  
+    }
+            return false
+    })
+  )
   : restaurants ;
   console.log(keyword)
   res.render('index',{restaurants:matchedRestaurant,keyword})
