@@ -27,7 +27,7 @@ app.get('/Restaurants',(req,res)=>{
     res.render('empty',{keyword})
   }else
   res.render('index',{restaurants:matchedRestaurant,keyword})
-
+  
 })
 
 app.get('/Restaurants/:id',(req,res)=>{

@@ -87,6 +87,14 @@ header {
     width: 20%;
     margin: 3rem 40rem;
 }
+
+#footer{
+  margin: 5rem 0 0 0;
+  bottom:0;
+  height:10rem;
+  border-top:0.1px solid rgb(174, 174, 174) ;
+}
+
 @media screen and (max-width: 992px) {
 
   .card img {
