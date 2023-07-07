@@ -20,8 +20,9 @@ app.get('/Restaurants',(req,res)=>{
 })
 
 app.get('/Restaurants/:id',(req,res)=>{
-  const id = req.params.id
-  res.send(`restaurant: ${id}`)
+  const id = Number(req.params.id)
+  const restaurant = restaurants.find(restaurant => restaurant.id === id )
+  res.render('detail',{restaurant})
 })
 
 
