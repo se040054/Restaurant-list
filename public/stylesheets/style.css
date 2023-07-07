@@ -82,6 +82,11 @@ header {
   width: 50%;
   margin: 50px auto;
 }
+
+#detail-btn-home{
+    width: 20%;
+    margin: 3rem 40rem;
+}
 @media screen and (max-width: 992px) {
 
   .card img {
